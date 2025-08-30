@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/patio")
+@CrossOrigin(origins = "*")
 public class PatioController {
 
 
@@ -34,14 +35,15 @@ public class PatioController {
         return ResponseEntity.ok(patioService.listarTodos());
     }
 
-    @PutMapping("/{indentificacao}")
-    public ResponseEntity<Patio> atualizar(@PathVariable String indentificacao, @RequestBody Patio patio){
-        return ResponseEntity.ok(patioService.atualizarPatio(indentificacao, patio));
+    @PutMapping("/{identificacao}")
+    public ResponseEntity<Patio> atualizar(@PathVariable String identificacao, @RequestBody Patio patio){
+        return ResponseEntity.ok(patioService.atualizarPatio(identificacao, patio));
     }
 
-    @DeleteMapping("/{indentificacao}")
-    public ResponseEntity<Patio> deletar(@PathVariable String indentificacao){
-        patioService.remover(indentificacao);
+    @DeleteMapping("/{identificacao}")
+    public ResponseEntity<Patio> deletar(@PathVariable String identificacao){
+        System.out.println("Tentando deletar patio: " + identificacao);
+        patioService.remover(identificacao);
         return ResponseEntity.ok().build();
     }
 

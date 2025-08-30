@@ -12,10 +12,8 @@ public class Patio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPatio;
-
     @Column(nullable = false, unique = true)
     private String identificacao;
-
     private double largura;
     private double comprimento;
 
