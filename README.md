@@ -3,7 +3,7 @@ Este projeto é um fork do projeto da entrega da disciplina de Java Advanced, qu
 Após os links estão as demais informações sobre o projeto e sobre como executá-lo.
 Links da entrega:
 - Link do Azure Boards: https://dev.azure.com/QuantumLeapOficial/MotoFindr
-- Link do vídeo dos testes: 
+- Link do vídeo dos testes: https://youtu.be/phgzTgqkjqs
 # Demais Orientações
 
 Este projeto é referente nossa solução para a empresa **Mottu**.
