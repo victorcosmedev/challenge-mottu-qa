@@ -28,4 +28,12 @@ public class AdministradorTest {
             admin.setCpfUser(cpfInvalido);
         });
     }
+
+    @Test
+    public void deveAceitarCpfValidoEArmazenarApenasNumeros() {
+        String cpfValido = "818.835.630-11";
+        admin.setCpfUser(cpfValido);
+
+        Assertions.assertEquals("81883563011", admin.getCpfUser());
+    }
 }
