@@ -41,6 +41,7 @@ public class MotoServiceTest {
 
     @Test
     void deveCadastrarMotoComSucesso(){
+        // Arrange
         MotoRecord moto = new MotoRecord(
                 "Honda CB 650F",
                 2022,
@@ -58,11 +59,15 @@ public class MotoServiceTest {
         vagaMock.setNumeroVaga(100);
 
         Mockito.when(motoqueiroRepository.findByCpfUser(Mockito.anyString())).thenReturn(motoqueiroMock);
-        Mockito.when(vagaRepository.findByPatioSecaoENumero("Patio Principal", "Secao A1", 100)).thenReturn(Optional.of(vagaMock));
+        Mockito.when(
+                vagaRepository.findByPatioSecaoENumero("Patio Principal", "Secao A1", 100))
+                .thenReturn(Optional.of(vagaMock));
         Mockito.when(motoRepository.save(any(Moto.class))).thenAnswer(i -> i.getArgument(0));
 
+        // Act
         Moto motoSalva = motoService.cadastrar(moto);
 
+        // Assert
         Assertions.assertNotNull(motoSalva);
         Assertions.assertEquals("9CS23SAD24214", motoSalva.getChassi());
         Mockito.verify(motoRepository, Mockito.times(1)).save(any(Moto.class));
@@ -70,6 +75,7 @@ public class MotoServiceTest {
 
     @Test
     void deveLancarExcecaoQuandoVagaNaoExiste(){
+        // Arrange
         MotoRecord record = new MotoRecord(
                 "Yamaha YBR Factor 125",
                 2023,
@@ -84,6 +90,7 @@ public class MotoServiceTest {
         Mockito.when(vagaRepository.findByPatioSecaoENumero(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt()))
                 .thenReturn(Optional.empty());
 
+        // Act e Assert
         Assertions.assertThrows(VagaNotFoundException.class, () -> motoService.cadastrar(record));
         Mockito.verify(motoRepository, Mockito.never()).save(any(Moto.class));
     }
