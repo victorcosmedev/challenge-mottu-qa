@@ -1,4 +1,10 @@
-# DOCUMENTAÇÃO CHALLENGE - JAVA
+# Entrega Sprint 4 - Compliance, Quality Assurance And Tests
+Este projeto é um fork do projeto da entrega da disciplina de Java Advanced, que contempla o back-end e, consequentemente, a lógica de negócio da nossa aplicação. Por este motivo escolhemos este projeto para construir os testes.
+Após os links estão as demais informações sobre o projeto e sobre como executá-lo.
+Links da entrega:
+- Link do Azure Boards: https://dev.azure.com/QuantumLeapOficial/MotoFindr
+- Link do vídeo dos testes: 
+# Demais Orientações
 
 Este projeto é referente nossa solução para a empresa **Mottu**.
 
